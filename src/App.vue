@@ -9,7 +9,7 @@
 <script>
 import { mapActions } from 'vuex';
 import Nav from '@/components/CssMenu'
-// import Nav from '@/components/navigation'
+// import Nav from '@/components/navigation' 
 export default {
   name: 'App',
   components: {

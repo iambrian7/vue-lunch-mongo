@@ -9,6 +9,7 @@ module.exports = {
   console.log("LunchController.js  index (getting all lunches*************")
   Lunch.find()
   .then(lunch => {
+    console.log(`found lunches count= ${lunch.length}`)
       res.send(lunch);
   }).catch(err => {
       res.status(500).send({
