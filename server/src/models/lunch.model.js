@@ -6,6 +6,7 @@ var schema = new Schema({
     "date": {type: String, required: true},
     "restaurant": {type: String, required: true},
     "owner": {type: String, required: true},
+    "time": {type: String, required: false},
     "rating": {type: String, required: false},
     "votes": {type: String, required: false},
     "result": {type: String, required: false},

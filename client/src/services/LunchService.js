@@ -13,9 +13,11 @@ export default {
     return Api().get(`lunches/${lunchId}`)
   },
   post (lunch) {
-    return Api().post('lunches', lunch)
+    console.log(`LunchService.js post (add lunch): ${JSON.stringify(lunch, null, 3)} `)
+    return lunch
+   // return Api().post('lunches', lunch)
   },
-  put (lunch) {
-    return Api().put(`lunches/${lunch.id}`, lunch)
+  put (payload) {
+    return Api().put(`lunches/${payload.id}`, payload.lunch)
   }
 }

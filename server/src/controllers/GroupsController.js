@@ -1,55 +1,63 @@
 // const {Song} = require('../models')
-const Lunch = require('../models/lunch.model.js');
+const Group = require('../models/group.model.js');
 module.exports = {
+
+
   async index (req, res) {
     try {
       ////////////////////////
       // Retrieve and return all notes from the database.
 // exports.findAll = (req, res) => {
-  console.log("LunchController.js  index (getting all lunches*************")
-  Lunch.find()
-  .then(lunch => {
-    console.log(`found lunches count= ${lunch.length}`)
-      res.send(lunch);
+  console.log("GroupController.js  index (getting all groupes*************")
+  Group.find()
+  .then(group => {
+    console.log(`found groupes count= ${group.length}`)
+      res.send(group);
   }).catch(err => {
       res.status(500).send({
-          message: err.message || "Some error occurred while retrieving lunchs."
+          message: err.message || "Some error occurred while retrieving groups."
       });
   });
  } catch (err) {
     res.status(500).send({
-      error: 'an error has occured trying to fetch the lunch'
+      error: 'an error has occured trying to fetch the group'
     })
   }
   }, // end of index
+
+
   async show (req, res) {
     try {
-      console.log(`find ${req.params.lunchId} lunches`)
-      const lunch = await Lunch.findById(req.params.lunchId)
-      res.send(lunch)
+      console.log(`find ${req.params.groupId} groupes`)
+      const group = await Group.findById(req.params.groupId)
+      res.send(group)
     } catch (err) {
       res.status(500).send({
-        error: 'an error has occured trying to show the lunch'
+        error: 'an error has occured trying to show the group'
       })
     }
-  },
+  }, // end of show
+
+
   async post (req, res) {
     try {
-      console.log(`add lunch ${JSON.stringify(req.body, null, 3)} lunches`)
-      const lunch = await Lunch.create(req.body)
-      res.send(lunch)
+      console.log(`add group ${JSON.stringify(req.body, null, 3)} groups`)
+      const group = await Group.create(req.body)
+      res.send(group)
     } catch (err) {
       res.status(500).send({
-        error: 'an error has occured trying to create the lunch'
+        error: 'an error has occured trying to create the group'
       })
     }
   },
+
+
   async put (req, res) {
     console.log('**********')
     console.log('**********')
     console.log('**********')
     console.log('**********')
-    console.log(`async put(LunchesController.js) req.body = ${JSON.stringify(req.body)} req.params=${req.params.lunchId}`)
+    console.log(`async put(GroupesController.js) req.body = ${JSON.stringify(req.body)} req.params=${req.params.groupId}`)
     console.log('**********')
     console.log('**********')
     console.log('**********')
@@ -57,18 +65,18 @@ module.exports = {
     console.log('**********')
     console.log('**********')
     // try {
-    //   await Lunch.update(req.body, {
+    //   await Group.update(req.body, {
     //     where: {
-    //       id: req.params.lunchId   
+    //       id: req.params.groupId   
     //     }
     //   })
     //   res.send(req.body)
     // } catch (err) {
     //   res.status(500).send({
-    //     error: 'an error has occured trying to update the Lunch'
+    //     error: 'an error has occured trying to update the Group'
     //   })
     // }
-    res.send({message:'testing update for a lunch',
+    res.send({message:'testing update for a group',
               data: req.body   });
   }
 } // end of exports

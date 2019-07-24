@@ -25,7 +25,7 @@
       <div v-if="addForm" class="add-form">
           <ul>
               <li>Your group name: <input type="text" v-model="group.name"></li>
-              <li>Owner: <input type="text" v-model="group.email"></li>
+              <li>Owner email: <input type="text" v-model="group.email"></li>
               <li>Location: <input  class="location" type="text" v-model="group.location"></li>
 
               <li></li>
@@ -46,28 +46,37 @@
       msg: 'Creating a Group',
       addForm: false,
       group: {
-        name: '',
-        email: '',
-        location: ''
+        name: 'Example',
+        email: 'bkcgee@gmail.com',
+        location: '55343'
       },
       error: ''
     }
   },
   methods:{
     saveGroup(){
+      debugger
+    // "created": {type: String, required: true},
+    // "name": {type: String, required: true},
+    // "owner": {type: String, required: true},
+    // "members":{type:Array, required: true}
+
+
       //this.group = this.mygroups[0]
       console.log(`Save Group: ${JSON.stringify(this.group, null, 3)}`)
       if (this.group.location.length < 5){
         this.error = "location should be an address or zip code"
       } else {
         this.error = ''
+        this.group.created = new Date()
+        this.group.members = ["Brian","Mark","Ben","Chris"]
         this.$store.dispatch('addGroup', this.group)
       }
     }
   },
   computed: {
     mygroups(){
-      debugger
+     // debugger
       // if (this.isLoggedInLocal) {
           var groups = this.$store.getters.groups
           console.log(`mygroups: ${JSON.stringify(groups, null, 3)}`)
@@ -106,8 +115,8 @@
   },
   created() {
     console.log("create CreateGroup.......................")
-    this.group.name = this.defaultName
-    this.group.email = this.userEmail
+    // this.group.name = this.defaultName
+    // this.group.email = this.userEmail
   }
   }
   </script>
@@ -125,7 +134,10 @@
     }
     .my-groups{
       border: 1px solid black;
-      background: #aa0;
+      background: rgb(129, 221, 233);
+      width: 80vw;
+    margin: auto;
+    padding: 20px;
     }
   </style>
   

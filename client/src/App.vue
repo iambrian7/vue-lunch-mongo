@@ -11,10 +11,12 @@
 <script>
       import LunchService from '@/services/LunchService'
 import Nav from '@/components/CssMenu'
+import RespNav from '@/components/RespNav'
 export default {
   name: 'App',
   components: {
-    'nav-lunch': Nav
+    // 'nav-lunch': Nav,
+    'nav-lunch': RespNav
   },
   methods: {
       // ...mapActions(['listenToProductList','listenToGroups'])

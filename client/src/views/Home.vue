@@ -48,10 +48,19 @@ export default {
       msg: 'Welcome to Your Vue.js Vue-Lunch App'
     }
   },
+  methods:{
+    loadGroups(){
+      this.$store.dispatch('loadGroups')
+    }
+  },
   computed: {
     users() {
       return this.$store.state.users
     }
+  },
+  created() {
+    console.log("created home................. loadingGroups")
+    this.loadGroups()
   }
 }
 </script>
@@ -108,6 +117,7 @@ h2 {
 img {
   display: block;
   width: 100%;
+  max-width: 400px;
 }
 
 main {

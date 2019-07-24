@@ -1,12 +1,18 @@
 <template>
     <div id="example">
         <h1>{{msg}}</h1>
+        <button class="map-button" @click="mapOn = !mapOn">Map</button>
         <div class="container">
-          <div class="lunch-list">
+          <div class="lunch-list" v-if="mapOn">
+            <div class="lunch"><router-link :to="{ name: 'lunchdetail', params: {item: '', back: 'true' } }">add lunch..</router-link></div>
             <div class="lunch" v-for="(lunch, i, index) in lunches" :key="i">
               <!-- <h3 v-if="lunch.section">{{lunch.section}} </h3> -->
-              Index: {{ index}}.  Date: {{ lunch.date}} Name: {{ lunch.name}} Owner: {{ lunch.owner }} 
+              {{ i+1}}.  Date: {{ lunch.date}} Name: {{ lunch.restaurant}} Owner: {{ lunch.owner }} 
               <p>{{lunch.addr}}</p>
+              <p><router-link :to="{ name: 'lunchdetail', params: {item: lunch } }">more..</router-link></p>
+             <!-- <p> <router-link :to="{path:'detail',params:{item:lunch}}">Detail</router-link></p> -->
+             <!-- <p> <router-link :to="{name:'lunchdetail',props:{id:lunch._id,item:lunch}}">Detail</router-link></p> -->
+              
             </div>
           </div>
           <!-- now map -->
@@ -28,6 +34,8 @@
     data () {
     return {
       msg: 'Example Page',
+      mapOn: true
+
      // lunches: null
     }
   },
@@ -82,12 +90,15 @@
   }
   .container{
     display: flex;
+    flex-direction: column;
   }
   .lunch-list{
     width: 80%;
     max-width: 800px;
     padding: 30px;
     margin: 0 auto;
+    max-height: 72vh;
+    overflow-y: scroll;
   }
   .lunch{
     border: 1px solid black;
@@ -109,5 +120,13 @@
     height: 80vh;
     background: #c44;
   }
+  @media screen and (min-width: 768px) {
+    .container{
+      flex-direction: row;
+    }
+    .map-button{
+      display: none;
+    }
+}
   </style>
   

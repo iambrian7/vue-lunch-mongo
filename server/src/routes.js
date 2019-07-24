@@ -2,6 +2,7 @@
 // const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 // const SongsController = require('./controllers/SongsController')
 const LunchesController = require('./controllers/LunchesController')
+const GroupsController = require('./controllers/GroupsController')
 // const BookmarksController = require('./controllers/BookmarksController')
 // const HistoriesController = require('./controllers/HistoriesController')
 // const MeetingsController = require('./controllers/MeetingsController')
@@ -11,6 +12,10 @@ const LunchesController = require('./controllers/LunchesController')
 module.exports = (app) => {
   app.get('/lunches', LunchesController.index)
   app.get('/lunches/:lunchId', LunchesController.show)
+  app.post('/lunches', LunchesController.post)
+  app.put('/lunches/:lunchId',LunchesController.put)
+  app.get('/groups', GroupsController.index)
+  app.post('/groups', GroupsController.post)
 }
 
 // module.exports = (app) => {

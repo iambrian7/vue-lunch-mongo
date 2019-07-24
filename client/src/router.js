@@ -20,6 +20,18 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/Example.vue')
     },
     {
+      path: '/detail',
+      name: 'lunchdetail',
+      component: () => import(/* webpackChunkName: "about" */ './views/LunchDetail.vue'),
+      props: true
+    },
+    {
+      path: '/editall',
+      name: 'editall',
+      component: () => import(/* webpackChunkName: "about" */ './views/EditAllLunches.vue'),
+      props: true
+    },
+    {
       path: '/creategroup',
       name: 'creategroup',
       component: () => import(/* webpackChunkName: "about" */ './views/CreateGroup.vue')
@@ -28,6 +40,11 @@ export default new Router({
       path: '/groups',
       name: 'groups',
       component: () => import(/* webpackChunkName: "about" */ './views/Groups.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import(/* webpackChunkName: "about" */ './views/Login.vue')
     },
     {
       path: '/about',

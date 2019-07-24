@@ -194,8 +194,6 @@ export default {
     //   "lat":"44.94635239999999",
     //   "lng":"-93.1710956",
 
-
-
             this.markers = [];
             var self = this
             for(var key in locations){

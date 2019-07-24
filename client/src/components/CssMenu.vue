@@ -1,31 +1,26 @@
 <template>
-  <div id="cssnav">
+  <div id="cssmenu1">
     <header>
         <!-- <nav id='cssmenu' class="menu-opened"> -->
-        <nav id='cssmenu'>
-        <div class="logo"><router-link to="/">vue-lunch</router-link></div>
+      <nav id='cssmenu2'>
+        <div class="logo1 menu-item"><router-link to="/">vue-lunch</router-link></div>
         <!-- <div id="head-mobile"></div> -->
         <!-- <div class="button"  :class="{ 'menu-opened': menuopen }" @click="menuopen = !menuopen"></div> -->
         <!-- <ul :class="{ 'open': menuopen }"> -->
-        <ul :class="{ 'open': menuopen }">
-
-        <li><router-link to="/">Home</router-link></li>
-        <!-- <li class='active'><router-link to="/">Home</router-link></li> -->
-        <li><router-link to="/example">Example</router-link></li>
-        <li> <router-link to="/groups">Groups</router-link>
-        <!-- <li class="has-sub"> <router-link to="/groups">Groups</router-link> -->
-        <!-- <ul>
-              <li v-for="(group,index) in groups" :key="index">{{ group.name}}
-                <a href='#'>{{groups.name}}</a>
-              </li>
-           </ul> -->
-        </li>
-        <li><router-link to="/creategroup">Create Group</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-
-        </ul>
-        </nav>
-        </header>
+        <ul :class="menu-item">
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/example">Example</router-link></li>
+          <li> <router-link to="/groups">Groups</router-link></li>
+          <li><router-link to="/creategroup">Create Group</router-link></li>
+          <li><router-link to="/editall">Edit All </router-link></li>
+          <li><router-link to="/about">About</router-link></li>
+          <li><router-link to="/login">Login</router-link></li>
+      </ul>
+      <!-- <div class="login-button menu-item">
+          <button><router-link to="/login">Login</router-link></button>
+      </div> -->
+    </nav>
+    </header>
         <!-- <section style='padding-top:20px;font:bold  44px arial;color:#68D800;'>
          Responsive CSS3 Menu <br />Dropdown + Submenus <br />
           Width Toggle Animation
@@ -58,12 +53,16 @@
         background:red;
       }
       *{margin:0;padding:0;text-decoration:none;}
+      li {list-style:none;}
+
       body{background:#555;}
       header{position:relative;width:100%;background:#333;}
       .logo{position:relative;z-index:123;padding:10px;font:18px verdana;color:#6DDB07;float:left;width:15%}
       .logo a{color:#6DDB07;}
       nav{position:relative;width:980px;margin:0 auto;}
-      #cssmenu,#cssmenu ul,#cssmenu ul li,#cssmenu ul li a,#cssmenu #head-mobile{border:0;list-style:none;line-height:1;display:block;position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+      #cssmenu button{ display:inline-block;}
+      #cssmenu,
+      #cssmenu ul,#cssmenu ul li,#cssmenu ul li a,#cssmenu #head-mobile{border:0;list-style:none;line-height:1;display:block;position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
       #cssmenu:after,#cssmenu > ul:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
       #cssmenu #head-mobile{display:none}
       #cssmenu{font-family:sans-serif;background:#333}
@@ -91,12 +90,12 @@
       #cssmenu ul ul ul li.active a{border-left:1px solid #333}
       #cssmenu > ul > li.has-sub > ul > li.active > a,#cssmenu > ul ul > li.has-sub > ul > li.active> a{border-top:1px solid #333}
 
-      @media screen and (max-width:1000px){
+      @media screen and (max-width:600px){
       .logo{position:absolute;top:0;left: 0;width:100%;height:46px;text-align:center;padding:10px 0 0 0 ;float:none}
       .logo2{display:none}
       nav{width:100%;}
       #cssmenu{width:100%}
-      #cssmenu ul{width:100%;display:none}
+      #cssmenu ul{width:100%;}
       #cssmenu ul.open {display:block;}
 
       #cssmenu ul li{width:100%;border-top:1px solid #444}
@@ -130,6 +129,43 @@
       #cssmenu ul ul ul li.active a{border-left:none}
       #cssmenu > ul > li.has-sub > ul > li.active > a,#cssmenu > ul ul > li.has-sub > ul > li.active > a{border-top:none}
       #cssmenu > li > ul:hover + li > ul {display: block;}
+      }
+      #cssmenu2{
+        display: flex;
+        justify-content: space-around;
+        /* margin: 0; */
+        padding: 0;
+        color: white;
+      }
+      a{color: white;}
+      .menu-item:nth-child(1) {
+        background: #555;
+        flex: 0 0 100px;
+        margin: auto;
+        /* width: 40px; */
+      }
+      .menu-item:nth-child(2) {
+        background: #555;
+        flex: 1, 0 , auto;
+
+      }
+      .menu-item:nth-child(3) {
+        background: #555;
+        flex: 0;
+      }
+      #cssmenu2 ul {
+        display: flex;
+        justify-content: space-around;
+      }
+      #cssmenu2 ul li {
+        flex: 1;
+        padding: 30px;
+        color: white;
+      }
+      .menu-item:hover {
+        font-size: 2em;
+        background: #448D00;
+
       }
     </style>
     
