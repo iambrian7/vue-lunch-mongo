@@ -59,7 +59,7 @@ export default {
     }
   },
   created() {
-    console.log("created home..xxxxxxreally home.xxx loading....")
+    console.log("created home loading....")
     this.loadGroups()
   }
 }
