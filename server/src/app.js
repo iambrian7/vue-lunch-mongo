@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 // const {sequelize} = require('./models')
-const config = require('./config/config')
+const config = require('./configold/config')
 var mongoose = require('mongoose');
 
 // connection string using mongoose:
@@ -19,7 +19,7 @@ var uri = 'mongodb://brian123:brian123@cluster-free1-shard-00-00-7juzj.mongodb.n
 //   'ssl=true&replicaSet=MY_REPLICASET_NAME-shard-0&authSource=MY_ADMIN_DATABASE';
 
 mongoose.connect(uri);
-var db = mongoose.connection;
+// var db = mongoose.connection;
 
 
 const app = express()
@@ -28,6 +28,8 @@ app.use(bodyParser.json())
 app.use(cors())
 
 // require('./passport')
+// API
+configureAPI(app)
 
 require('./routes')(app)
 
